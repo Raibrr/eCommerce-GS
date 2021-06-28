@@ -1,7 +1,9 @@
 export default interface product {
-	id: string,
-	image: string,
-	title: string,
-	price: number,
-	description: string
+	id: string;
+	image: string;
+	title: string;
+	price: number;
+	description: string;
+	qtyOnCart: number;
+	stock: number;
 }

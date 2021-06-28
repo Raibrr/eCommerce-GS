@@ -1,13 +1,16 @@
+import { useContext } from "react";
+import AppContext from "../context/AppContext";
 import Product from "./Product";
-import ProductsInterface from '../interfaces/ProductsInterface';
 
 
-const Products = ({ products } : {products: Array<ProductsInterface>}) => {
+const Products = () => {
+	const { state: { products }, addToCard} = useContext(AppContext);
+	//const handleAddToCart = (product: any) => () => addToCard(product)
 	return (
 		<div className='row d-flex'>
 			{
-				products.map(product => (
-					<Product key={product.id} product={product} />
+				products.map((product: any) => (
+					<Product key={product.id} product={product} addToCard={addToCard}/>
 				))
 			}
 		</div>
