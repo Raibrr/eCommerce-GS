@@ -1,23 +1,23 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import SelectQty from "../components/SelectQty";
 import AppContext from "../context/AppContext";
+import appContextInterface from "../interfaces/appContextInterface";
+import productInterface from "../interfaces/ProductsInterface";
+import HandleSumTotal from '../utils/HandleSumTotal';
 
 const Checkout = () => {
-	const { state : { cart }, removeFromCart, addToCard } = useContext(AppContext);
+	const { state : { cart }, removeFromCart, addToCart } : appContextInterface = useContext(AppContext);
 
-	const handleSumTotal = () => {
-		const reducer = (acumulator: any, currentValue: any) => acumulator + (currentValue.price * currentValue.qtyOnCart);
-		const sum = cart.reduce(reducer, 0);
-		return sum;
+	
+
+	const handleChange = (event: React.ChangeEvent<HTMLSelectElement> ) => {
+		let [product] = cart.filter((item: productInterface) => item.title === event.target.name);
+		let qty = Number(event.target.value);
+		addToCart(product, qty)
 	};
 
-	const handleChange = (e: any) => {
-		let [product] = cart.filter((item: any) => item.title === e.target.name);
-		let qty = Number(e.target.value);
-		addToCard(product, qty)
-	};
-
-	const handleRemove = (product: any) => () => {
+	const handleRemove = (product: productInterface) => () => {
 		removeFromCart(product)
 	}
 
@@ -28,27 +28,30 @@ const Checkout = () => {
 			{
 				cart.length === 0 ? <h4>Tu carrito de compras esta vacio</h4> : <h3>Lista de Pedidos</h3>
 			}
-				<div className="row">
+				<div className="row d-flex align-items-center">
 					{
-						cart.map((item: any) => (
-							<>
-								<p className="col-3 align-self-start">{item.title}</p>
-								<div className="col-2 align-self-start">
-									<SelectQty productName={item.title} stock={item.stock} handleChange={handleChange} qtyOnCart={item.qtyOnCart}/>
-								</div>
-								<p className="col-2 offset-sm-3 mb-1">{`$ ${item.price}`}</p>
-								<button type='button' className='col-1 offset-sm-1 mb-1 px-0 btn bg-transparent' onClick={handleRemove(item)}>
-									<i className='fas fa-trash-alt' style={{color: "red"}}/>
-								</button>
+						cart.map((item: productInterface) => (
+							<div key={item.id}>
+								<img src={item.image} alt={item.title} className='col-3 w-25 h-25'/>
+									<p className="col-3">{item.title}</p>
+									<div className="col-2 ">
+										<SelectQty productName={item.title} stock={item.stock} handleChange={handleChange} qtyOnCart={item.qtyOnCart}/>
+									</div>
+									<p className="col-2 mb-1">{`$ ${item.price}`}</p>
+									<button type='button' className='col-1 offset-sm-1 mb-1 px-0 btn bg-transparent' onClick={handleRemove(item)}>
+										<i className='fas fa-trash-alt' style={{color: "red"}}/>
+									</button>
 								<hr />
-							</>
+							</div>
 						))
 					}
 				</div>
 			</div>
 			<div className="col-4">
-				<p>Precio total {handleSumTotal()}</p>
-				<button className='btn btn-primary'>Continuar con pedido</button>
+				<p>Precio total {HandleSumTotal()}</p>
+				<Link to='checkout/information'>
+					<button className='btn btn-primary'>Continuar con pedido</button>
+				</Link>
 			</div>			
 		</div>
 	)

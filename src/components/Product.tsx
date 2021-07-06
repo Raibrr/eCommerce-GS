@@ -3,14 +3,14 @@ import ProductsInterface from "../interfaces/ProductsInterface";
 import "../styles/components/Products.css";
 import SelectQty from "./SelectQty";
 
-const Product = ({ product, addToCard, }: {product: ProductsInterface; addToCard: any; }) => {
+const Product = ({ product, addToCard } : {product: ProductsInterface, addToCard: Function  }) => {
 	const [quantity, setQuantity] = useState(1);
 
-	const handleChange = (e:any) => setQuantity(Number(e.target.value));
-	const handleClick = () => {
+	const handleChange = (e : React.ChangeEvent<HTMLSelectElement>) : void => setQuantity(Number(e.target.value));
+	const handleClick = () : void => {
 		addToCard(product, quantity);
 	};
-	const {image,title,description, stock, id, qtyOnCart} = product;
+	const {image,title,description, stock, qtyOnCart} = product;
 	return (
 		<div className="col-6 col-md-4 px-2 my-2 ">
 			<div className="card shadow bg-body rounded">

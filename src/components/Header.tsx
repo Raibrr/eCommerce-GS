@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
 import { Link } from "react-router-dom";
+import appContextInterface from "../interfaces/appContextInterface";
 
 const Header = () => {
-	const { state: { cart } } = useContext(AppContext);
+	const { state: { cart } } : appContextInterface = useContext(AppContext);
 	return (
 		<div className='row'>
 			<div className="col-9">

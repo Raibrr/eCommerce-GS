@@ -1,30 +1,27 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useContext } from 'react';
+import { Link, useHistory } from "react-router-dom";
+import AppContext from "../context/AppContext";
+import appContextInterface from "../interfaces/appContextInterface";
+import productInterface from "../interfaces/ProductsInterface";
+import inputsInterface from "../interfaces/inputsInterface";
 
-type  Inputs = {
-	fullName: string,
-	email: string,
-	direction: string,
-	country: string,
-	state: string,
-	city: string,
-	apto: string,
-	cp: string,
-	phone: string,
-}
 
 /*
-
-
-					Ver si validar la info con joi desde el form es usado y correcto
-
-
+	VALIDATE FORM WITH JOI
 */
 const Information = () => {
-const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
-const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+	const { state: { cart, buyer}, addBuyer } : appContextInterface = useContext(AppContext)
+	const { register, handleSubmit, formState: { errors } } = useForm<inputsInterface>();
+	const history = useHistory();
+	const onSubmit: SubmitHandler<inputsInterface> = (data) => {
+		addBuyer(data);
+		console.log(buyer)
+		history.push('/checkout/payment');
+	}
 	return (
 		<div className="row">
-			<div className="col-8 align-self-start">
+			<div className="col-8">
 				<h4>Informacion de contacto</h4>
 				<form className='row' onSubmit={handleSubmit(onSubmit)}>
 					<div className="col-6">
@@ -71,7 +68,7 @@ const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 						{errors.cp?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
 
 					</div>
-					<div className="col-12">
+					<div className="col-6">
 						<label htmlFor="telefono">Telefono</label>
 						<input className='form-control' {...register('phone', { 
 							required: true, 
@@ -83,19 +80,54 @@ const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 						{errors.phone?.type === 'maxLength' && errors.phone.message}
 						{errors.phone?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
 					</div>
-					<button className='btn btn-success' type='submit'>Pagar</button>
+					<div className="col-12">
+						<label htmlFor="referencias">Referencias</label>
+						<input className='form-control' {...register('ref')} placeholder='Opcional'/>
+					</div>
+					<div className="row justify-content-center">
+						{
+								cart.length > 0 ? (
+									<button className="btn btn-success ms-4 mt-2" type="submit">
+										Pagar
+									</button>
+								) : (
+									<button className="btn btn-primary ms-4 mt-2" type="submit">
+										Agregar direccion
+									</button>
+								)
+						}
+					</div>
 				</form>
-				<div className="d-flex justify-content-between mt-1">
-					<button className='btn btn-primary'>Regresar</button>
-					
-				</div>
 			</div>
-			<div className="col-4">
-				<h5>Pedido</h5>
-				<div className="row">
-					<p className="col-8 align-self-start fw-bold">ITEM name</p>
-					<p className="col-4 align-self-end">$10</p>
 
+			{/* FORM END */}
+
+			<div className="col-4">
+				<div className="row">
+				<h5 className='px-0'>Pedido</h5>
+					{
+						cart.length > 0 ? (
+							<div className='row px-0'>
+								{cart.map((item: productInterface) => (
+									<div key={item.id}>
+										<p className="col-5 fw-bold">{item.title}</p>
+										<p className="col-1">${item.price}</p>
+										<p className="col-5 mx-2">{`Cantidad: ${item.qtyOnCart}`}</p>
+									</div>
+								))}
+								<div className="col-12">
+									<Link to='/checkout'>
+										<button className="btn btn-primary btn-sm">Modificar</button>
+									</Link>
+								</div>
+							</div>
+						) : (
+							<div className="row">
+								<p className="col-12">Sin articulos...</p>
+								<button className="btn btn-success col-12">Ir a tienda</button>
+							</div>
+						)
+					}
 				</div>
 			</div>
 		</div>

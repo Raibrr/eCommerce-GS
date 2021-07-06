@@ -1,7 +1,9 @@
-import product from "./ProductsInterface";
+import productInterface from "./ProductsInterface";
+import inputsInterface from "./inputsInterface";
 
 export default interface initialStateInterface {
-	quantity: number,
-	cart: Array<any>,
-	products: Array<product>
+	order: Array<any>,
+	buyer: Array<inputsInterface>,
+	cart: Array<productInterface>,
+	products: Array<productInterface>
 }
