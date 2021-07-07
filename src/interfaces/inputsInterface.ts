@@ -1,6 +1,7 @@
 export default interface inputsInterface {
 	fullName: string,
 	email: string,
+	suburb: string,
 	direction: string,
 	country: string,
 	state: string,
@@ -9,4 +10,4 @@ export default interface inputsInterface {
 	cp: string,
 	phone: string,
 	ref: string,
-}
+};

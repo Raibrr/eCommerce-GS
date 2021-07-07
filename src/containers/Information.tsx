@@ -38,7 +38,12 @@ const Information = () => {
 						{errors.email?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
 					</div>
 					<div className="col-12">
-						<label htmlFor="direccion">Direccion de entrega</label>
+						<label htmlFor="direccion" className='fw-bold'>Colonia, fraccionamiento, etc</label>
+						<input className='form-control' { ...register('suburb', { required: true})} />
+						{errors.suburb?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
+					</div>
+					<div className="col-12">
+						<label htmlFor="direccion" className='fw-bold'>Direccion de la calle</label>
 						<input className='form-control' { ...register('direction', { required: true})} />
 						{errors.direction?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
 					</div>
@@ -124,7 +129,9 @@ const Information = () => {
 						) : (
 							<div className="row">
 								<p className="col-12">Sin articulos...</p>
-								<button className="btn btn-success col-12">Ir a tienda</button>
+								<Link to='/'>
+									<button className="btn btn-success col-12">Ir a tienda</button>
+								</Link>
 							</div>
 						)
 					}
