@@ -42,7 +42,16 @@ const useInitialStete = () => {
 	const addNewOrder = (payload:any) => {
 		setState({
 			...state,
-			order: [...state.order, payload]
+			shoppingHistory: [...state.shoppingHistory.concat(state.cart)],
+			order: [...state.order, payload],
+			cart: []
+		})
+	};
+
+	const setLighttMode = (checked: boolean) => {
+		setState({
+			...state,
+			lightMode: !state.lightMode,
 		})
 	};
 
@@ -51,6 +60,7 @@ const useInitialStete = () => {
 		addNewOrder,
 		removeFromCart,
 		addBuyer,
+		setLighttMode,
 		state,
 	}
 };

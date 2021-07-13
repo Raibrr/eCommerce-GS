@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useChangeLightMode from "../hooks/useChangeLightMode";
 import ProductsInterface from "../interfaces/ProductsInterface";
 import "../styles/components/Products.css";
 import SelectQty from "./SelectQty";
@@ -13,7 +14,7 @@ const Product = ({ product, addToCard } : {product: ProductsInterface, addToCard
 	const {image,title,description, stock, qtyOnCart} = product;
 	return (
 		<div className="col-6 col-md-4 px-2 my-2 ">
-			<div className="card shadow bg-body rounded">
+			<div className={`card shadow rounded ${useChangeLightMode('Products')}`}>
 				<img
 					className="card-top-img"
 					src={image}

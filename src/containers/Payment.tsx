@@ -5,14 +5,12 @@ import { PayPalButton } from "react-paypal-button-v2";
 import product from "../interfaces/ProductsInterface";
 import HandleSumTotal from "../utils/HandleSumTotal";
 import { useHistory } from "react-router-dom";
-import productInterface from "../interfaces/ProductsInterface";
 import appContextInterface from "../interfaces/appContextInterface";
+import CommandEnum from "../enums/commandEnum";
 config();
 const Payment = () => {
 	const { state: {cart, buyer}, addNewOrder } : appContextInterface = useContext(AppContext);
 	const history = useHistory();
-	const reducer = (acumulator: number, currentValue: productInterface) : number => acumulator + currentValue.qtyOnCart;
-	const totalQty = cart.reduce(reducer, 0)
 	const paypalButtonStyle = {
 		layout: 'vertical',
 		shape: 'rect',
@@ -33,8 +31,8 @@ const Payment = () => {
 				payment: data
 			}
 			addNewOrder(newOrder);
-			history.push('/checkout/success');
 		}
+		history.push('/checkout/success');
 	}
 	return (
 		<div className='row'>
@@ -57,23 +55,23 @@ const Payment = () => {
 			<div className="col-4 card">
 				<p className='fw-bold'>Resumen del pedido:</p>
 				<div className="row">
-					<p className='col-6 mb-1'>{totalQty} Productos:</p>
-					<p className='col-6 mb-1'>${HandleSumTotal()}</p>
+					<p className='col-6 mb-1'>{HandleSumTotal(CommandEnum['totalQty'])} Productos:</p>
+					<p className='col-6 mb-1'>${HandleSumTotal(CommandEnum['totalPrice'])}</p>
 					<p className='col-6'>Envio</p>
 					<p className='col-6'>$0.00</p>
 				</div>
 				<hr />
 				<div className="row">
 					<p className="col-6">Total</p>
-					<p className="col-6">{HandleSumTotal()} + precio envio</p>
+					<p className="col-6">{HandleSumTotal(CommandEnum['totalPrice'])} + precio envio</p>
 				</div>
 				<PayPalButton
 					options={options}
 					style={paypalButtonStyle}
-					amount={HandleSumTotal()}
-					onButtonReady={() => console.log('start payment')}
+					amount={HandleSumTotal(CommandEnum['totalPrice'])}
+					onButtonReady={() => console.log('button ready')}
 					onSuccess={(data: object) => handlePaymentSucces(data)}
-					onError={(error:any) => console.log(error)}
+					onError={(error:any) => console.log(error.message, error)}
 					/>
 			</div>
 		</div>

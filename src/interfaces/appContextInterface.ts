@@ -5,5 +5,6 @@ export default interface appContextInterface {
 	addNewOrder: Function,
 	removeFromCart: Function,
 	addBuyer: Function,
+	setLighttMode: Function,
 	state: initialStateInterface
 }

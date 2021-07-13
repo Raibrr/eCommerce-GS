@@ -37,15 +37,20 @@ const Information = () => {
 						<input className='form-control'{...register('email', { required: true})} />
 						{errors.email?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
 					</div>
+					<div className="col-3">
+						<label htmlFor="apto">Apto</label>
+						<input className='form-control' {...register('apto', { required: true})}/>
+						{errors.apto?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
+					</div>
+					<div className="col-9">
+						<label htmlFor="direccion" className='fw-bold'>Direccion de la calle</label>
+						<input className='form-control' { ...register('direction', { required: true})} />
+						{errors.direction?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
+					</div>
 					<div className="col-12">
 						<label htmlFor="direccion" className='fw-bold'>Colonia, fraccionamiento, etc</label>
 						<input className='form-control' { ...register('suburb', { required: true})} />
 						{errors.suburb?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
-					</div>
-					<div className="col-12">
-						<label htmlFor="direccion" className='fw-bold'>Direccion de la calle</label>
-						<input className='form-control' { ...register('direction', { required: true})} />
-						{errors.direction?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
 					</div>
 					<div className="col-4">
 						<label htmlFor="pais">Pais</label>
@@ -61,11 +66,6 @@ const Information = () => {
 						<label htmlFor="ciudad">Ciudad</label>
 						<input className='form-control' {...register('city', { required: true})}/>
 						{errors.city?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
-					</div>
-					<div className="col-4">
-						<label htmlFor="apto">Apto</label>
-						<input className='form-control' {...register('apto', { required: true})}/>
-						{errors.apto?.type === 'required' && <div className="badge bg-danger text-wrap">Campo requerido</div>}
 					</div>
 					<div className="col-4">
 						<label htmlFor="codigoPostal">Codigo postal</label>

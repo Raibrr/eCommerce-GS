@@ -1,4 +1,6 @@
 export default {
+	lightMode: false,
+	shoppingHistory:[],
 	order:[],
 	buyer:[],
 	cart: [],

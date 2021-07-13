@@ -5,12 +5,10 @@ import AppContext from "../context/AppContext";
 import appContextInterface from "../interfaces/appContextInterface";
 import productInterface from "../interfaces/ProductsInterface";
 import HandleSumTotal from '../utils/HandleSumTotal';
+import CommandEnum from "../enums/commandEnum";
 
 const Checkout = () => {
 	const { state : { cart }, removeFromCart, addToCart } : appContextInterface = useContext(AppContext);
-
-	
-
 	const handleChange = (event: React.ChangeEvent<HTMLSelectElement> ) => {
 		let [product] = cart.filter((item: productInterface) => item.title === event.target.name);
 		let qty = Number(event.target.value);
@@ -31,7 +29,7 @@ const Checkout = () => {
 				<div className="row d-flex align-items-center">
 					{
 						cart.map((item: productInterface) => (
-							<div key={item.id}>
+							<div key={item.id} className='row align-items-center'>
 								<img src={item.image} alt={item.title} className='col-3 w-25 h-25'/>
 									<p className="col-3">{item.title}</p>
 									<div className="col-2 ">
@@ -48,7 +46,7 @@ const Checkout = () => {
 				</div>
 			</div>
 			<div className="col-4">
-				<p>Precio total {HandleSumTotal()}</p>
+				<p>Precio total {HandleSumTotal(CommandEnum['totalPrice'])}</p>
 				<Link to='checkout/information'>
 					<button className='btn btn-primary'>Continuar con pedido</button>
 				</Link>
