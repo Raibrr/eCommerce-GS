@@ -4,7 +4,7 @@ import useChangeLightMode from '../hooks/useChangeLightMode';
 
 const Layout = ({ children } : { children: any }) => {
 	return (
-		<div className={` ${useChangeLightMode('Layout')}`}>
+		<div className={`${useChangeLightMode('Layout')}`}>
 			<Header />
 
 			{children}
