@@ -21,27 +21,48 @@ h5 {
 	font-family: "Open Sans", sans-serif;
 	font-weight: 800;
 }
-
+.link-active {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 800;
+	border-bottom-style: solid;
+	border-bottom-color: #77388c;
+	border-bottom-width: 2px;
+	color: #77388c !important;
+	z-index: 501;
+}
 .pargraph-link:hover {
 	border-bottom-style: solid;
 	border-bottom-color: #77388c;
 	border-bottom-width: 2px;
 	color: #77388c !important;
+	z-index: 501;
+}
+
+.menu-item:hover .pargraph-link {
+	border-bottom-style: solid;
+	border-bottom-color: #77388c;
+	border-bottom-width: 2px;
+	color: #77388c !important;
+	z-index: 501;
 }
 .menu-item {
 	height: 100%;
 }
 
 .menu-item-content {
+	top: 80px;
 	overflow: auto;
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.5s;
 }
 
-.menu-item:hover .menu-item-content {
+.menu-item-content-active {
+	top: 80px;
+	overflow: auto;
 	opacity: 1;
 	visibility: visible;
+	transition: opacity 0.5s;
 }
 .menu-items-measures {
 	width: 300px;
@@ -50,6 +71,29 @@ h5 {
 
 .menu-items-measures-img {
 	height: 400px;
+}
+
+.container-dropdown-lg-menu {
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+.menu-large-screen-left {
+	margin-left: 10%;
+	margin-right: 70px;
+}
+.menu-large-screen-right {
+	margin-right: 10%;
+	margin-left: 70px;
+}
+
+.container-link-menu {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.ribbon-color {
+	color: #77388c !important;
 }
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
