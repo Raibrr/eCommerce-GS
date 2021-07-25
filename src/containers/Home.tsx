@@ -1,12 +1,16 @@
 
+import CarouselSection from '../components/carousel/CarouselSection';
+import Hero from '../components/hero/Hero';
 import Products from '../components/Products';
 import useChangeLightMode from '../hooks/useChangeLightMode';
 
 
 const Home = () => {
 	return (
-		<div className={`container ${useChangeLightMode('Home')}`}>
-			<Products/>
+		<div className={` ${useChangeLightMode('Home')}`}>
+			<Hero/>
+			<CarouselSection/>
+			{/* <Products/> */}
 		</div>
 	)
 }

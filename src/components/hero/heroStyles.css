@@ -1,0 +1,40 @@
+.hero-content {
+	width: 100%;
+	height: calc(100% + 40px);
+	position: relative;
+	top: 0;
+	z-index: 90;
+}
+
+.hero-image {
+	object-fit: cover;
+}
+
+.hero-lgscreen {
+	top: 30%;
+	left: 10%;
+}
+.content-hero-title {
+	color: black;
+	font-weight: 800;
+	font-size: 35px;
+	text-transform: uppercase;
+	width: 60%;
+}
+
+.content-hero-paragraph {
+	width: 60%;
+}
+.content-hero-button {
+	background-color: #77388c;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white !important;
+	font-weight: 500;
+	font-size: 12px;
+	width: 20%;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
