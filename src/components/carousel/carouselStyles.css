@@ -8,19 +8,22 @@
 .carousel-paragraph {
 	font-weight: 700;
 	font-family: "Roboto", sans-serif;
-	font-size: 27px;
-	width: 60%;
 	align-self: center;
+	text-align: center;
 }
 .carousel-title {
 	color: #77388c;
 	align-self: center;
+	text-align: center;
 	font-family: "Open Sans", sans-serif;
 	font-weight: 800;
 }
 .carousel-sub-title {
 	color: #37b8aa;
+	display: flex;
 	align-self: center;
+	justify-content: center;
+	text-align: center;
 	font-family: "Open Sans", sans-serif;
 	font-weight: 800;
 }
@@ -35,4 +38,15 @@
 
 .carousel-item {
 	height: 450px !important;
+}
+
+.carousel-item-image {
+	object-fit: contain;
+	height: 400px !important;
+	width: 300px !important;
+}
+.carousel-item-image-container {
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-bottom: 40px;
 }

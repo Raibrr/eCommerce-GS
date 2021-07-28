@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import giftShop from '../images/logoGS.svg';
-const GiftShopLogo = ({ display, height, width} : {display: string, height: string, width: string}) => {
+
+interface GSlogoInterface {
+  display: string,
+  height: string,
+  width: string
+}
+const GiftShopLogo = ({ display, height, width} : GSlogoInterface) => {
 	return (
     <div
       className={`position-fixed top-0 start-50 translate-middle-x ${display}`}

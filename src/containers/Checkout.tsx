@@ -21,7 +21,7 @@ const Checkout = () => {
 
 
 	return (
-		<div className='row'>
+		<div className='row' style={{marginTop: '150px'}}>
 			<div className="col-8 align-self-center">
 			{
 				cart.length === 0 ? <h4>Tu carrito de compras esta vacio</h4> : <h3>Lista de Pedidos</h3>

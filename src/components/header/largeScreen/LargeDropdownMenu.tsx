@@ -1,7 +1,12 @@
 import categories from "../../../categories";
 import CategoryLargeScreen from "./CategoryLargeScreen";
 
-const LargeDropdownMenu = ({ handler, dropdownMenuState }: { handler: any, dropdownMenuState: any}) => {
+interface lgDropdownMenuInterface {
+  handler: React.MouseEventHandler<HTMLDivElement>,
+  dropdownMenuState: boolean
+}
+
+const LargeDropdownMenu = ({ handler, dropdownMenuState }: lgDropdownMenuInterface) => {
 
 	let styleElement = dropdownMenuState ? 'menu-item-content-active' : 'menu-item-content';
 	return (

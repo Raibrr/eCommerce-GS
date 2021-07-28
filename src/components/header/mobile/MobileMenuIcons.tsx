@@ -1,5 +1,10 @@
 
-const MobileMenuIcons = ({bootstrapClass, handler}: {bootstrapClass: string, handler: any}) => {
+interface mobileMenuInterface {
+	bootstrapClass: string,
+	handler: React.MouseEventHandler<HTMLSpanElement>
+}
+
+const MobileMenuIcons = ({bootstrapClass, handler}: mobileMenuInterface) => {
 	return (
 		<div className={`${bootstrapClass}`}>
 			<div

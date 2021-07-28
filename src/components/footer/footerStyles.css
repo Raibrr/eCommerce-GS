@@ -1,0 +1,11 @@
+.footer-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+.footer-logo-wrapper {
+	height: 180px;
+	width: 180px;
+}

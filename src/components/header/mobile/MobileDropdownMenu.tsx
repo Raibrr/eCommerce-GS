@@ -7,7 +7,7 @@ import RibbonAndCups from "../../RibbonAndCups";
 const MobileDropdownMenu = () => {
   return (
     <div
-      className="vw-100 d-lg-none position-fixed bg-white overflow-auto"
+      className="vw-100 d-lg-none position-fixed bg-white overflow-scroll"
       style={{ zIndex: 999, height: `calc(100vh - 80px)` }}
     >
       <div className="pb-5 mb-4">

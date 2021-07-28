@@ -1,9 +1,15 @@
 
 import subCategoriesInterface from "../../../interfaces/subCategoriesInterface";
-import CustomLink from "../../atoms/CustomLink"
-import SubMenuCategories from "../../molecules/SubMenuCategories"
+import CustomLink from "../../atoms/CustomLink";
+import SubMenuCategories from "../../molecules/SubMenuCategories";
 
-const CategoryLargeScreen = ({ srcImage, categoryName, subCategories } : { srcImage?: string, categoryName: string ,subCategories: Array<subCategoriesInterface>}) => { 
+interface categoyLgInterface {
+	srcImage?: string,
+	categoryName: string,
+	subCategories: Array<subCategoriesInterface>
+}
+
+const CategoryLargeScreen = ({ srcImage, categoryName, subCategories } : categoyLgInterface) => { 
 	return (
 		<div className="menu-items-measures me-3">
 			{srcImage && (

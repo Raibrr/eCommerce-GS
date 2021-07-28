@@ -14,26 +14,65 @@
 	top: 30%;
 	left: 10%;
 }
-.content-hero-title {
+.content-hero-title-lg {
 	color: black;
 	font-weight: 800;
-	font-size: 35px;
+	font-size: 30px;
 	text-transform: uppercase;
 	width: 60%;
 }
 
-.content-hero-paragraph {
+.content-hero-paragraph-lg {
+	color: white;
 	width: 60%;
+	font-size: 20px;
 }
-.content-hero-button {
+.content-hero-button-lg {
 	background-color: #77388c;
 	text-decoration: none;
 	text-transform: uppercase;
 	color: white !important;
 	font-weight: 500;
-	font-size: 12px;
+	font-size: 14px;
 	width: 20%;
 	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.hero-title-mobile {
+	display: flex;
+	justify-content: center;
+	color: #68287d;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 800;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.hero-paragraph-mobile {
+	font-family: "Lato", sans-serif;
+	font-weight: 700;
+	color: black;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.hero-button-mobile {
+	background-color: #37b8aa;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white !important;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 700;
+	font-size: 70%;
+	text-align: center;
+	width: 25%;
+	height: 40px;
+	position: absolute;
+	top: 40%;
+	left: 15%;
+	z-index: 92;
 	display: flex;
 	justify-content: center;
 	align-items: center;

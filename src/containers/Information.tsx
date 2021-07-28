@@ -20,7 +20,7 @@ const Information = () => {
 		history.push('/checkout/payment');
 	}
 	return (
-		<div className="row">
+		<div className="row" style={{marginTop: "130px"}}>
 			<div className="col-8">
 				<h4>Informacion de contacto</h4>
 				<form className='row' onSubmit={handleSubmit(onSubmit)}>

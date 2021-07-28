@@ -1,6 +1,13 @@
 import CustomLink from '../atoms/CustomLink';
 
-const SectionMenu = ({bootstrapClass, extraClass, route, sectionName} : {bootstrapClass : string, extraClass?: string, route: string, sectionName: string}) => {
+interface sectonMenuInterface {
+	bootstrapClass: string,
+	extraClass?: string,
+	route: string,
+	sectionName: string
+}
+
+const SectionMenu = ({bootstrapClass, extraClass, route, sectionName} : sectonMenuInterface) => {
 	const customClass = extraClass ? extraClass: '';
 	return (
 		<div className={`${bootstrapClass} ${customClass}`}>

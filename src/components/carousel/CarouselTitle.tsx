@@ -3,7 +3,7 @@ const CarouselTitle = () => {
 	return (
 		<div className='carousel-title-container'>
 			<h1 className='carousel-title'>Hasta lo que no estabas buscando</h1>
-			<h5 className='carousel-paragraph'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h5>
+			<h5 className='carousel-paragraph col-10 col-md-8'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</h5>
 		</div>
 	)
 }

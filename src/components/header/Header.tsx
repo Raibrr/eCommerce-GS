@@ -15,6 +15,7 @@ import SectionMenu from "../molecules/SectionMenu";
 import MobileDropdownMenu from "./mobile/MobileDropdownMenu";
 import MobileMenuIcons from "./mobile/MobileMenuIcons";
 import LargeDropdownMenu from "./largeScreen/LargeDropdownMenu";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { state: { lightMode } } : appContextInterface = useContext(AppContext);
@@ -39,7 +40,7 @@ const Header = () => {
             />
   
             <div
-              className="pb-5 mt-5 container-link-menu"
+              className="pb-5 mt-5 d-none d-lg-block container-link-menu"
               onMouseEnter={handlerDropdownMenu}
               onMouseLeave={handlerDropdownMenu}
             >
@@ -69,7 +70,9 @@ const Header = () => {
             <span>
               <Icon iconName="fa-user" iconSize="fa-lg" />
               <Icon iconName="fa-search" iconSize="fa-lg" />
-              <Icon iconName="fa-shopping-cart" iconSize="fa-lg" />
+              <Link to='/checkout'>
+                <Icon iconName="fa-shopping-cart" iconSize="fa-lg" />
+              </Link>
             </span>
           </div>
           <MobileMenuIcons bootstrapClass='d-lg-none d-block' handler={handlerDropdownMenu}/>

@@ -17,8 +17,8 @@ const Success = () => {
 	const position = useAddress(`${apto} ${direction}, ${state}, ${country}`);
 	console.log(position)
   return (
-		<div className="row">
-			<h4 className='col-12'>El pedido llegara al la siguiente direccion</h4>
+		<div className="row" style={{marginTop: "130px"}}>
+			<h4 className='col-12'>El pedido llegara a la siguiente direccion</h4>
 			<p>{`${direction} #${apto}, ${suburb}, ${city}, ${state}`}</p>
 			{
 				typeof position === 'object' && <Map position={position}/>

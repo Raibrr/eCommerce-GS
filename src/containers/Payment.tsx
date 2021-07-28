@@ -35,7 +35,7 @@ const Payment = () => {
 		history.push('/checkout/success');
 	}
 	return (
-		<div className='row'>
+		<div className='row' style={{marginTop: "130px"}}>
 			<div className="col-6">
 				{
 					cart.map((item:product) => (
