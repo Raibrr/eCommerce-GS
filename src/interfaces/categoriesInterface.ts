@@ -4,7 +4,8 @@ export interface categoryInterface {
 		id:number,
 		categoryName: string,
 		categoryURL: string,
-		categoryImage: any,
+		categoryImage: string,
+		navCategoryImage?: any,
 		subCategories: Array<subCategoriesInterface>,
 }
 

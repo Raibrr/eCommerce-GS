@@ -17,10 +17,11 @@ const LargeDropdownMenu = ({ handler, dropdownMenuState }: lgDropdownMenuInterfa
           onMouseLeave={handler}
         >
           <div className="d-flex pt-5 px-5 mt-3 justify-content-center">
-            {categories.map((cat: any) => (
+            {/* //TODO solo usa los 3 primeros elemnetos de las categorias */}
+            {categories.slice(0,3).map((cat: any) => (
               <CategoryLargeScreen
                 categoryName={cat.categoryName}
-                srcImage={cat.categoryImage}
+                srcImage={cat.navCategoryImage}
                 subCategories={cat.subCategories}
               />
             ))}

@@ -8,7 +8,7 @@ import useChangeLightMode from '../hooks/useChangeLightMode';
 
 const Home = () => {
   return (
-    <div className={`${useChangeLightMode("Home")}`} style={{ marginTop: "85px" }} >
+    <div className={`${useChangeLightMode("Home")}`} style={{ marginTop: "85px !important" }} >
       <MobileHero bootstrapClass="d-flex d-md-none" />
       <Hero />
       <CarouselSection />
